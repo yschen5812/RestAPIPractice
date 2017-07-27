@@ -1,0 +1,9 @@
+testapp:
+  build: .
+  command: gunicorn -b 0.0.0.0:8000 --reload --access-logfile - "testapp.app:create_app()"
+  environment:
+    PYTHONUNBUFFERED: 'true'
+  volumes:
+    - .:/testapp
+  ports:
+    - '8000:8000'
